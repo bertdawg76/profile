@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
 
-var dbURI = config.dbURI;
+var dbURI = process.env.MONGOlab_URI;
+if (process.env.NODE_ENV === 'production'){
+  dbURI = process.env.MONGODB_URI;
+}
 
 
 mongoose.connect(dbURI);
