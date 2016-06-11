@@ -1,0 +1,1 @@
+angular.module('profile', ['ui.router', 'ngAnimate', 'ngAria', 'ngMaterial', 'ui.bootstrap']);
