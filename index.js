@@ -8,8 +8,10 @@ var app = express();
 var cors = require('cors');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-
+require('./server/config/database');
 require('./server/models/info.js');
+
+
 app.set('port', (process.env.PORT || 8500));
 
 app.use(cors());
