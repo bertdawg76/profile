@@ -14,7 +14,12 @@ angular.module('profile').config(function($urlRouterProvider, $stateProvider) {
         controller: 'adminCtrl',
         controllerAs: 'admin'
       })
-
+      .state('info', {
+        url: '/info',
+        templateUrl: 'views/info-view.html',
+        controller: 'infoCtrl',
+        controllerAs: 'display'
+      })
 
 
 });

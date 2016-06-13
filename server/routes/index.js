@@ -3,7 +3,7 @@ var router = express.Router();
 
 //var auth = require('../config/auth');
 var ctrlInfo = require('../controllers/infoCtrl');
-
+var ctrlSkills = require('../controllers/skillsCtrl');
 
 // authentication
 
@@ -16,11 +16,11 @@ router.get('/Info/:id', ctrlInfo.editInfo);
 router.put('/Info/:id', ctrlInfo.updateInfo);
 router.delete('/Info/:id', ctrlInfo.deleteInfo);
 
-//router.get('/Skill', ctrlSkills.getSkill);
-//router.post('/Skill', auth.authent, ctrlSkills.createSkill);
-//router.get('/Skill/:id', ctrlSkills.editSkill);
-//router.put('/Skill/:id', auth.authent,  ctrlSkills.updateSkill);
-//router.delete('/Skill/:id', auth.authent, ctrlSkills.deleteSkill);
+router.get('/Skill', ctrlSkills.getSkill);
+router.post('/Skill', ctrlSkills.createSkill);
+router.get('/Skill/:id', ctrlSkills.editSkill);
+router.put('/Skill/:id', ctrlSkills.updateSkill);
+router.delete('/Skill/:id', ctrlSkills.deleteSkill);
 
 
 

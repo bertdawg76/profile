@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 require('./server/config/database');
 require('./server/models/info.js');
+require('./server/models/skills.js');
 
 
 app.set('port', (process.env.PORT || 8500));

@@ -14,3 +14,4 @@ mongoose.connection.on('connected', function(){
 
 
 require('../models/info');
+require('../models/skills');
