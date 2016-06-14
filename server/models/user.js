@@ -58,7 +58,7 @@ UserSchema.methods.generateJwt = function(){
     role: this.role,
     name: this.name,
     exp: parseInt(expiry.getTime() / 1000)
-  },  sessionSecret || secret.sessionSecret);
+  },  'ILoveDonuts');
 };
 
 module.exports = mongoose.model('User', UserSchema);
