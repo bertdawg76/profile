@@ -4,7 +4,7 @@ angular.module('profile').config(function($urlRouterProvider, $stateProvider) {
 
 
 
-  $urlRouterProvider.otherwise('/admin');
+  $urlRouterProvider.otherwise('/info');
   $stateProvider
 
 
@@ -20,6 +20,17 @@ angular.module('profile').config(function($urlRouterProvider, $stateProvider) {
         controller: 'infoCtrl',
         controllerAs: 'display'
       })
-
+      .state('login', {
+        url: '/login',
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'vm'
+      })
+      .state('signup', {
+        url: '/signup',
+        templateUrl: 'views/signup.html',
+        controller: 'SignupCtrl',
+        controllerAs: 'vm'
+      })
 
 });

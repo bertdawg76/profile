@@ -4,11 +4,12 @@ var router = express.Router();
 //var auth = require('../config/auth');
 var ctrlInfo = require('../controllers/infoCtrl');
 var ctrlSkills = require('../controllers/skillsCtrl');
+var ctrlAuth = require('../controllers/userCtrl');
 
 // authentication
 
-//router.post('/register', ctrlAuth.register);
-//router.post('/login', ctrlAuth.login);
+router.post('/register', ctrlAuth.register);
+router.post('/login', ctrlAuth.login);
 
 router.get('/Info', ctrlInfo.getInfo);
 router.post('/Info', ctrlInfo.createInfo);

@@ -1,4 +1,4 @@
-angular.module('profile').controller('adminCtrl', function($scope, Info, Skill){
+angular.module('profile').controller('adminCtrl', function($scope, Info, Skill, Auth){
   var vm = this;
   //vm.items = [];
   $scope.project = {};
