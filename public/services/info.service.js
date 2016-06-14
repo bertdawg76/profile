@@ -1,4 +1,4 @@
-angular.module('profile').factory('Info', function($http, $stateParams){
+angular.module('profile').factory('Info', function($http, $stateParams, Auth){
 
   var info = {};
 
@@ -19,21 +19,21 @@ angular.module('profile').factory('Info', function($http, $stateParams){
 
 
   info.createInfo = function(product){
-    return $http.post('/api/Info', product).success(function(data){
+    return $http.post('/api/Info', product, {headers: {Authorization: 'Bearer ' + Auth.getToken()}}).success(function(data){
       return data;
     })
   };
 
   info.updateInfo = function(product){
     console.log(product);
-    return $http.put('/api/Info/' + product._id, product).success(function(data){
+    return $http.put('/api/Info/' + product._id, product,{headers: {Authorization: 'Bearer ' + Auth.getToken()}}).success(function(data){
       return data;
     })
   };
 
   info.deleteInfo = function(id){
     console.log(id);
-    return $http.delete('api/Info/' + id).success(function(data){
+    return $http.delete('api/Info/' + id, {headers: {Authorization: 'Bearer ' + Auth.getToken()}}).success(function(data){
       return data;
     })
   };

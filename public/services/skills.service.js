@@ -1,4 +1,4 @@
-angular.module('profile').factory('Skill', function($http, $stateParams){
+angular.module('profile').factory('Skill', function($http, $stateParams, Auth){
 
   var skill = {};
 
@@ -19,21 +19,21 @@ angular.module('profile').factory('Skill', function($http, $stateParams){
 
 
   skill.createSkill = function(skill){
-    return $http.post('/api/Skill', skill).success(function(data){
+    return $http.post('/api/Skill', skill, {headers: {Authorization: 'Bearer ' + Auth.getToken()}}).success(function(data){
       return data;
     })
   };
 
   skill.updateSkill = function(skill){
     console.log(skill);
-    return $http.put('/api/Skill/' + skill._id, skill).success(function(data){
+    return $http.put('/api/Skill/' + skill._id, skill, {headers: {Authorization: 'Bearer ' + Auth.getToken()}}).success(function(data){
       return data;
     })
   };
 
   skill.deleteSkill = function(id){
     console.log(id);
-    return $http.delete('api/Skill/' + id).success(function(data){
+    return $http.delete('api/Skill/' + id, {headers: {Authorization: 'Bearer ' + Auth.getToken()}}).success(function(data){
       return data;
     })
   };

@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 var secret = require('../config/main');
-//var Schema = mongoose.Schema;
+
 
 var UserSchema = new mongoose.Schema({
   email: {type: String, lowercase: true, unique: true },
@@ -35,14 +35,6 @@ UserSchema.pre('save', function(next){
 
 // compare password in the database and the one that the user types in
 
-/*UserSchema.methods.comparePassword = function(password, cb){
-  bcrypt.compare(password, this.password, function(err, isMatch){
-    if (err){
-      return cb(err);
-    }
-    cb(null, isMatch);
-  });
-};*/
 UserSchema.methods.comparePassword = function(password){
   return bcrypt.compareSync(password, this.password)
 };
