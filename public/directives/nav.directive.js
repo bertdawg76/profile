@@ -3,7 +3,7 @@
 angular.module('profile')
     .directive('navbar', function () {
       return {
-        templateUrl: 'views/md-toolbar.html',
+        templateUrl: 'views/nav.html',
         restrict: 'E',
         controller: 'NavbarCtrl'
       };

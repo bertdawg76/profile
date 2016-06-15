@@ -1,32 +1,40 @@
-<div class="navbar navbar-default navbar-static-top mainColor"  ng-controller="NavbarCtrl">
+<md-content>
+  <md-toolbar class="md-hue-2" layout="row" layout-align="space-between center" flex>
 
-  <div class="container">
-    <div class="navbar-header">
-      <a
+    <br>
+
+    <div class="md-toolbar-tools">
+
+
+
+      <a class="navIcon"
           href="https://www.linkedin.com/in/bert-coleman-5b95b0106" target="_blank">
         <i class="fa fa-linkedin fa-3x"></i>
       </a>
-    </div>
-    <div class="navbar-header">
-      <a href="https://www.github.com/bertdawg76" target="_blank">
+
+
+      <a class="navIcon" href="https://www.github.com/bertdawg76" target="_blank">
         <i class="fa fa-github fa-3x"></i>
       </a>
-    </div>
-    <div collapse="isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li ng-repeat="item in menu" ui-sref-active="active">
-          <a  ui-sref="{{item.state}}">{{item.title}}</a>
-        </li>
-        <li ng-show="isAdmin()" ui-sref-active="active"><a ui-sref="admin">Admin</a></li>
-      </ul>
 
-      <ul class="nav navbar-nav navbar-right">
-        <li ng-hide="isLoggedIn()" ui-sref-active="active"><a ui-sref="signup" ng-style="navbar">Sign up</a></li>
-        <li ng-hide="isLoggedIn()" ui-sref-active="active"><a ui-sref="login" ng-style="navbar">Login</a></li>
-        <li ng-show="isLoggedIn()"><p class="navbar-text" ng-style="navbar">Hello {{ currentUser().name }}</p> </li>
-        <li ng-show="isLoggedIn()"><a href='' ng-click="logOut()">Log Out</a></li>
 
-      </ul>
-    </div>
-  </div>
+
+        <div ng-repeat="item in menu" ui-sref-active="active">
+         <md-button class="md-primary"  ui-sref="{{item.state}}">{{item.title}}</md-button>
+
+        <md-button ng-show="isAdmin()" class="md-primary" ui-sref="admin">Admin</md-button>
+        </div>
+      <span flex></span>
+
+        <md-button ng-show="isAdmin()" class="md-primary" ui-sref-active="active" ui-sref="signup">Sign up</md-button>
+        <md-button ng-hide="isLoggedIn()" ui-sref-active="active" ui-sref="login" class="md-primary">Login</md-button>
+        <p ng-show="isLoggedIn()">Hello {{ currentUser().name }}</p>
+        <md-button ng-show="isLoggedIn()" href=''  class="md-primary" ng-click="logOut()">Log Out</md-button>
+
+
 </div>
+
+
+
+    </md-toolbar>
+  </md-content>

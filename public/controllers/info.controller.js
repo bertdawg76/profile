@@ -1,4 +1,4 @@
-angular.module('profile').controller('infoCtrl', function($scope, Info, Skill){
+angular.module('profile').controller('infoCtrl', function($scope, Info, Skill, $uibModal) {
   var vm = this;
   //vm.items = [];
   $scope.project = {};
@@ -99,4 +99,31 @@ angular.module('profile').controller('infoCtrl', function($scope, Info, Skill){
       $scope.oneSkill = response.data.data;
     });
   };
+
+  $scope.getProject = function(id) {
+    Info.getOneInfo(id)
+        .then(function(response){
+          console.log(response);
+          $scope.oneProject = response.data;
+          var modalInstance = $uibModal.open({
+            templateUrl: './views/dialog.html',
+            controller: 'modalCtrl',
+            windowClass: 'fancy-modal',
+            resolve: {
+              oneProject: function (){
+                return $scope.oneProject;
+              }
+            }
+          })
+        });
+
+  }
+
+
 });
+
+
+
+
+
+

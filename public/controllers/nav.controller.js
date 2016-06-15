@@ -7,11 +7,8 @@ angular.module('profile')
         {
           'title': 'Info',
           'state': 'info'
-        },
-        {
-          'title': 'Admin',
-          'state': 'admin'
         }
+
 
       ];
 

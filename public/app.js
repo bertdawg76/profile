@@ -1,6 +1,15 @@
-angular.module('profile', ['ui.router', 'ngMaterial', 'ngAnimate']);
+angular.module('profile', ['ui.router', 'ngMaterial', 'ngAnimate', 'ui.bootstrap', 'ngAria', 'ngMdIcons']);
 
-angular.module('profile').config(function($urlRouterProvider, $stateProvider) {
+angular.module('profile').config(function($urlRouterProvider, $stateProvider, $mdThemingProvider) {
+
+
+
+    $mdThemingProvider.theme('default')
+        .primaryPalette('green')
+        .accentPalette('green')
+        .warnPalette('red');
+
+
 
 
 
@@ -31,6 +40,10 @@ angular.module('profile').config(function($urlRouterProvider, $stateProvider) {
         templateUrl: 'views/signup.html',
         controller: 'SignupCtrl',
         controllerAs: 'vm'
+      })
+      .state('resume', {
+        url: '/resume',
+        templateUrl: 'views/resume.html'
       })
 
 });
